@@ -1,143 +1,118 @@
-# SnowAdmin
+# KD 自动售货机管理系统
 
 <div>
 	<p>
-    <a href="https://github.com/WangFan-io/SnowAdmin" target="_blank">
+    <a href="https://github.com/Lin-6499/KD-vending-machine" target="_blank">
 		  <img src="https://img.shields.io/badge/License-MIT-%2343aefc" alt="License">
 		</a>
-		<a href="https://github.com/WangFan-io/SnowAdmin" target="_blank">
+		<a href="https://github.com/Lin-6499/KD-vending-machine" target="_blank">
 		  <img src="https://img.shields.io/badge/vue_.js-vue3_.x-%2300b42a" alt="Vue">
 		</a>
-    <a href="https://github.com/WangFan-io/SnowAdmin" target="_blank">
+    <a href="https://github.com/Lin-6499/KD-vending-machine" target="_blank">
 		  <img src="https://img.shields.io/badge/Vite-6x-%2311B337" alt="Vite">
 		</a>
-     <a href="https://github.com/WangFan-io/SnowAdmin" target="_blank">
+     <a href="https://github.com/Lin-6499/KD-vending-machine" target="_blank">
 		 <img alt="arco.design" src="https://img.shields.io/badge/arco.design-2.57.0-%23%2028%2C175%2C%2063">
 		</a>
 	</p>
 </div>
 
-### 介绍 📖
+### 项目介绍 📖
 
-SnowAdmin 是一个清新优雅、高颜值且功能强大的后台管理模板，基于最新的前端技术栈，包括 Vue3, Vite6, TypeScript, Pinia。它内置了丰富的主题配置和组件，代码规范严谨，实现了自动化的文件路由系统。SnowAdmin 为您提供了一站式的后台管理解决方案，无需额外配置，开箱即用。同样是一个快速学习前沿技术的最佳实践。
+KD 自动售货机管理系统是一个现代化的自动售货机后台管理平台，基于最新的前端技术栈构建，包括 Vue3, Vite6, TypeScript, Pinia 和 Arco Design。系统提供了完整的售货机运营管理功能，包括设备管理、商品管理、销售分析、维护调度等核心业务模块。
 
-### 版本 📦
+### 主要功能 🚀
 
-**预览及文档**
+- **设备管理**: 售货机列表、位置管理、状态监控
+- **商品管理**: 库存管理、商品配置、补货调度
+- **销售分析**: 销售报表、数据统计、收益分析
+- **维护管理**: 维护计划、故障处理、设备保养
+- **系统管理**: 用户权限、系统配置、数据管理
 
-项目预览地址：[SnowAdmin](http://115.190.79.132/#/login)
+### 代码仓库 📦
 
-项目文档地址：[SnowAdmin-开发指南](http://115.190.79.132:81/)
+| 平台   | 仓库地址                                                             |
+| ------ | -------------------------------------------------------------------- |
+| GitHub | [KD-vending-machine](https://github.com/Lin-6499/KD-vending-machine) |
 
-**代码仓库**
-
-| 平台   | 仓库地址                                               |
-| ------ | ------------------------------------------------------ |
-| GitHub | [Github 仓库](https://github.com/WangFan-io/SnowAdmin) |
-| Gitee  | [Gitee 仓库](https://gitee.com/wang_fan_w/SnowAdmin)   |
-
-> 完整版分支：main
+> 主分支：main
 >
-> 极简版分支：main-thin
->
-> ⚠️主要的维护在github上，提issue/pr请认准github主战场
->
-> 大家也可以进wx群交流，二维码在介绍末尾
+> 开发分支：develop
 
 ### 先行预览 🖼️
 
-![登录页](https://ooo.0x0.ooo/2025/04/11/O0lhbG.png)
+_项目截图将在后续更新..._
 
-![首页](https://ooo.0x0.ooo/2025/04/11/O0lnVI.png)
+### 技术特性 🔨
 
-![文件库](https://ooo.0x0.ooo/2025/04/11/O0l7qD.png)
-
-![国际化](https://ooo.0x0.ooo/2025/04/11/O0lNAF.png)
-
-![横向布局](https://ooo.0x0.ooo/2025/04/11/O0leQ6.png)
-
-![混合布局](https://ooo.0x0.ooo/2025/04/11/O0lrCP.png)
-
-![主题配置](https://ooo.0x0.ooo/2025/04/11/O0lKnb.png)
-
-![黑暗模式-1](https://ooo.0x0.ooo/2025/04/11/O0lZ4l.png)
-
-![黑暗模式-2](https://ooo.0x0.ooo/2025/04/11/O0lv6g.png)
-
-![黑暗模式-3](https://ooo.0x0.ooo/2025/04/11/O0lgkB.png)
-
-### 项目功能 🔨
-
-- 清晰的项目架构：结构清晰，优雅易懂，代码全注释
-- 前沿技术应用：采用 Vue3, Vite6, TypeScript等最新流行的技术栈
-- 内置RBAC角色权限模型，实现路由、角色、按钮权限访问控制
-- 使用 Pinia 替代 Vuex，轻量、简单、易用，集成 Pinia 持久化插件
-- 支持 Arco-Design 组件大小切换、多主题布局、暗黑模式、i18n 国际化
-- 使用 VueRouter 配置动态路由权限拦截、路由懒加载，支持页面按钮权限控制
-- 使用 KeepAlive 对页面进行缓存，支持多级嵌套路由缓存
-- 使用 Prettier 统一格式化代码，集成 ESLint、Stylelint 代码校验规范
-- 使用 husky、lint-staged、commitlint等插件，规范提交信息
-- 丰富的页面组件：内置多样页面和组件，包括 401、404、500 页面，以及布局组件、标签组件、主题配置组件等
+- **现代化技术栈**: 采用 Vue3, Vite6, TypeScript 等最新流行的技术栈
+- **权限管理**: 内置 RBAC 角色权限模型，实现路由、角色、按钮权限访问控制
+- **状态管理**: 使用 Pinia 替代 Vuex，轻量、简单、易用，集成 Pinia 持久化插件
+- **UI 组件**: 基于 Arco Design 组件库，支持组件大小切换、多主题布局、暗黑模式
+- **国际化**: 支持 i18n 国际化多语言切换
+- **路由管理**: 使用 VueRouter 配置动态路由权限拦截、路由懒加载
+- **页面缓存**: 使用 KeepAlive 对页面进行缓存，支持多级嵌套路由缓存
+- **代码规范**: 使用 Prettier 统一格式化代码，集成 ESLint、Stylelint 代码校验规范
+- **提交规范**: 使用 husky、lint-staged、commitlint 等插件，规范提交信息
 
 ### 环境准备 🏝️
 
 确保你的环境满足以下要求（重要）：
 
-- **git**: 你需要 git 来克隆和管理项目版本。
-- **NodeJS**: >=18.12.0，推荐 20.12.0 或更高。
-- **pnpm**: >= 8.7.0，推荐最新版本。
+- **git**: 你需要 git 来克隆和管理项目版本
+- **NodeJS**: >=18.12.0，推荐 20.12.0 或更高
+- **pnpm**: >= 8.7.0，推荐最新版本
 
 ### 安装使用步骤 📔
 
-### 从 GitHub 获取代码 🔗
+### 获取代码 🔗
 
 ```bash
 # 克隆代码
-git clone https://github.com/WangFan-io/SnowAdmin.git
-```
-
-### 从 Gitee 获取代码 🔗
-
-```bash
-# 克隆代码
-git clone https://gitee.com/wang_fan_w/SnowAdmin.git
+git clone https://github.com/Lin-6499/KD-vending-machine.git
 ```
 
 ### 安装依赖 📌
 
-安装项目依赖
-
 ```bash
+# 进入项目目录
+cd KD-vending-machine
+
+# 安装项目依赖
 pnpm install
 ```
 
-### 插件配置 🛠️
+### 开发环境配置 🛠️
 
-安装 Vue - Official，禁用 Vetur
+推荐安装以下 VSCode 插件：
 
 - [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) - Vue 服务插件
+- [TypeScript Importer](https://marketplace.visualstudio.com/items?itemName=pmneo.tsimporter) - TypeScript 自动导入
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 代码格式化
 
 ### 项目启动 🚀
 
-```json
-{
-  // 开发环境启动
-  "dev": "vite",
-  // 开发环境构建
-  "build:dev": "vue-tsc && vite build --mode development",
-  // 生产环境构建
-  "build:prod": "vue-tsc && vite build --mode production",
-  // 测试环境构建
-  "build:test": "vue-tsc && vite build --mode test",
-  // 预览环境启动
-  "preview": "vite preview"
-}
+```bash
+# 开发环境启动
+pnpm dev
+
+# 开发环境构建
+pnpm build:dev
+
+# 生产环境构建
+pnpm build:prod
+
+# 测试环境构建
+pnpm build:test
+
+# 预览环境启动
+pnpm preview
 ```
 
-### 文件资源目录 📚
+### 项目结构 📚
 
 ```text
-SnowAdmin
+KD-vending-machine
 ├─ .husky                 # husky 配置文件
 ├─ .vscode                # VSCode 推荐配置
 ├─ build                  # vite项目配置目录
@@ -159,6 +134,11 @@ SnowAdmin
 │  ├─ typings             # 全局 ts 声明
 │  ├─ utils               # 常用工具库
 │  ├─ views               # 项目所有页面
+│  │  ├─ machines         # 设备管理页面
+│  │  ├─ products         # 商品管理页面
+│  │  ├─ sales            # 销售分析页面
+│  │  ├─ maintenance      # 维护管理页面
+│  │  └─ system           # 系统管理页面
 │  ├─ App.vue             # 项目主组件
 │  ├─ main.ts             # 项目入口文件
 │  └─ vite-env.d.ts       # 指定 ts 识别 vue
@@ -178,7 +158,6 @@ SnowAdmin
 ├─ index.html             # 入口 html
 ├─ LICENSE                # 开源协议
 ├─ lint-staged.config.cjs # lint-staged 配置文件
-├─ package-lock.json      # 依赖包包版本锁
 ├─ package.json           # 依赖包管理
 ├─ pnpm-lock.yaml         # 依赖包包版本锁
 ├─ README.md              # README 介绍
@@ -188,63 +167,30 @@ SnowAdmin
 
 ### 浏览器支持 🌎
 
-- 本地开发推荐使用 Chrome 最新版浏览器 [Download](https://www.google.com/intl/zh-CN/chrome/)。
-- 生产环境支持现代浏览器，不再支持 IE 浏览器，更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ESModule)。
+- 本地开发推荐使用 Chrome 最新版浏览器 [Download](https://www.google.com/intl/zh-CN/chrome/)
+- 生产环境支持现代浏览器，不再支持 IE 浏览器，更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ESModule)
 
 | ![IE](https://i.imgtg.com/2023/04/11/8z7ot.png) | ![Edge](https://i.imgtg.com/2023/04/11/8zr3p.png) | ![Firefox](https://i.imgtg.com/2023/04/11/8zKiU.png) | ![Chrome](https://i.imgtg.com/2023/04/11/8zNrx.png) | ![Safari](https://i.imgtg.com/2023/04/11/8zeGj.png) |
 | :---------------------------------------------: | :-----------------------------------------------: | :--------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: |
 |                   not support                   |                  last 2 versions                  |                   last 2 versions                    |                   last 2 versions                   |                   last 2 versions                   |
 
-### 鸣谢列表 🧩
+### 技术栈 🧩
 
-- [vue：https://v3.cn.vuejs.org/](https://v3.cn.vuejs.org/)
-- [axios：https://github.com/axios/axios](https://github.com/axios/axios)
-- [nprogress：https://github.com/rstacruz/nprogress](https://github.com/rstacruz/nprogress)
-- [sortablejs：https://github.com/SortableJS/Sortabl](https://github.com/SortableJS/Sortable)
-- [sass：https://github.com/sass/sass](https://github.com/sass/sass)
-- [typescript：https://github.com/microsoft/TypeScript](https://github.com/microsoft/TypeScript)
-- [vite：https://github.com/vitejs/vite](https://github.com/vitejs/vite)
-- [wangeditor：https://github.com/wangeditor-team/wangEditor](https://github.com/wangeditor-team/wangEditor)
-- [eslint：https://github.com/eslint/eslint](https://github.com/eslint/eslint)
-- [prettier：https://github.com/prettier/prettier](https://github.com/prettier/prettier)
-- [arco.design：https://arco.design/](https://arco.design/)
+- [Vue3](https://v3.cn.vuejs.org/) - 渐进式 JavaScript 框架
+- [Vite](https://github.com/vitejs/vite) - 下一代前端构建工具
+- [TypeScript](https://github.com/microsoft/TypeScript) - JavaScript 的超集
+- [Pinia](https://pinia.vuejs.org/) - Vue 的状态管理库
+- [Arco Design](https://arco.design/) - 字节跳动出品的企业级设计语言
+- [Vue Router](https://router.vuejs.org/) - Vue.js 官方路由管理器
+- [Axios](https://github.com/axios/axios) - 基于 Promise 的 HTTP 库
+- [Sass](https://github.com/sass/sass) - CSS 预处理器
+- [ESLint](https://github.com/eslint/eslint) - JavaScript 代码检查工具
+- [Prettier](https://github.com/prettier/prettier) - 代码格式化工具
 
-### 特别鸣谢 🎉
+### 开源协议 📫
 
-- [vue-next-admin：http://vuenextadmin.ccfast.cc/](http://vuenextadmin.ccfast.cc/)
-- [Gi-admin：https://lin-97.github.io/gi-demo/](https://lin-97.github.io/gi-demo/#/home)
-- [Geeker-Admin：https://admin.spicyboy.cn/](https://admin.spicyboy.cn/#/home/index)
-
-感谢以上框架为本项目提供了帮助，项目中的很多设计思想值得参考和学习，再次感谢。
-
-### 学习 & 交流 🏫
-
-|                                              SnowAdmin 交流群                                               |
-| :---------------------------------------------------------------------------------------------------------: |
-| ![微信图片_20250726141221](https://github.com/user-attachments/assets/8c1ebf3c-4630-487e-9a54-810fd4d6972c) |
-
-使用过程中有各种问题也可以进群交流，欢迎大家积极参与
+本项目基于 [MIT](LICENSE) 协议，可免费用于学习和商业用途。
 
 ### 支持作者 🌟
 
-如果觉得框架不错，或者已经在使用了，希望你可以去 [GitHub](https://github.com/WangFan-io/SnowAdmin) ⭐ Star，这将是对我极大的鼓励与支持。
-
-### 免责条款 📫
-
-您充分了解并同意，您必须为自己使用本服务及注册帐号下的一切行为负责，包括您所发表的任何内容以及由此产生的任何后果。您应对本服务中的内容自行加以判断，并自行承担因使用内容而引起的所有风险。
-
-`SnowAdmin` 对网站上所显示的信息或资料的准确性、内容、完整性、合法性、可靠性、可操作性或可用性不承担任何责任。
-
-`SnowAdmin` 二次开发使用者因为违法而触犯中华人民共和国法律的，一切后果自己负责，`SnowAdmin` 作者不承担任何责任。
-
-本声明未涉及的问题参见国家有关法律法规，当本声明与国家法律法规冲突时，以国家法律法规为准。
-
-### 学习 & 商用 🌈
-
-`SnowAdmin` 是免费和开源的，可免费用于学习、商业使用 。
-
-### 捐赠 💖
-
-|                        微信                        |                        支付宝                        |
-| :------------------------------------------------: | :--------------------------------------------------: |
-| ![微信](https://ooo.0x0.ooo/2025/07/20/OYtFn1.jpg) | ![支付宝](https://ooo.0x0.ooo/2025/07/20/OYth4I.jpg) |
+如果觉得项目不错，或者已经在使用了，希望你可以去 [GitHub](https://github.com/Lin-6499/KD-vending-machine) ⭐ Star，这将是对我极大的鼓励与支持。
