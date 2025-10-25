@@ -205,15 +205,9 @@ SnowAdmin
 - [typescript：https://github.com/microsoft/TypeScript](https://github.com/microsoft/TypeScript)
 - [vite：https://github.com/vitejs/vite](https://github.com/vitejs/vite)
 - [wangeditor：https://github.com/wangeditor-team/wangEditor](https://github.com/wangeditor-team/wangEditor)
-- [qrcodejs：https://github.com/davidshimjs/qrcodejs](https://github.com/davidshimjs/qrcodejs)
-- [print-js：https://github.com/crabbly/Print.js](https://github.com/crabbly/Print.js)
 - [eslint：https://github.com/eslint/eslint](https://github.com/eslint/eslint)
 - [prettier：https://github.com/prettier/prettier](https://github.com/prettier/prettier)
 - [arco.design：https://arco.design/](https://arco.design/)
-- [pinyin-pro：https://github.com/zh-lx/pinyin-pro](https://github.com/zh-lx/pinyin-pro)
-- [qrcode：https://www.npmjs.com/package/qrcode](https://www.npmjs.com/package/qrcode)
-- [jsbarcode：https://github.com/lindell/JsBarcode/wiki/Options](https://github.com/lindell/JsBarcode/wiki/Options)
-- [fingerprintjs2：https://www.npmjs.com/package/fingerprintjs2](https://www.npmjs.com/package/fingerprintjs2)
 
 ### 特别鸣谢 🎉
 

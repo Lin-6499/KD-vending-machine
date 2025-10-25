@@ -38,6 +38,7 @@
         :bordered="{ cell: true }"
         row-key="id"
         :loading="loading"
+        :scroll="{ x: '100%', y: '100%', minWidth: 1000 }"
       >
         <template #columns>
           <a-table-column title="部门名称">
@@ -221,7 +222,9 @@ const onUpdate = (row: any) => {
   title.value = "修改部门";
   formType.value = 1;
   addFrom.value = deepClone(row);
-  row.parentId == 0 && (addFrom.value.parentId = null);
+  if (row.parentId == 0) {
+    addFrom.value.parentId = null;
+  }
   open.value = true;
 };
 const addDivision = (id: any) => {
@@ -263,5 +266,3 @@ onMounted(() => {
   getDivision();
 });
 </script>
-
-<style lang="scss" scoped></style>

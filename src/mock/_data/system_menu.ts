@@ -52,7 +52,7 @@ export const systemMenu = [
     name: "home", // 路由name
     component: "home/home", // 路由跳转的文件路径，默认在src/views内，这里就是src/views/home/home.vue
     meta: {
-      title: "home", // 国际化key，无对应Key则直接展示
+      title: "data-screen", // 国际化key，无对应Key则直接展示
       hide: false, // 是否隐藏此路由-不显示但可访问
       disable: false, // 是否停用此路由-不显示且不可访问
       keepAlive: false, // 是否缓存组件
@@ -60,7 +60,7 @@ export const systemMenu = [
       link: "", // 是否外链
       iframe: false, // 是否内嵌外链窗口
       isFull: false, // 是否全屏显示
-      roles: ["admin", "common"], // 路由角色权限
+      roles: ["admin", "operator", "maintenance"], // 路由角色权限
       svgIcon: "home", // svg菜单图标，优先级高于icon，取src/assets/svgs内的svg文件
       icon: "", // 普通icon菜单图标，默认取arco.design图标
       sort: 1, // 排序字段
@@ -71,11 +71,11 @@ export const systemMenu = [
   {
     id: "02",
     parentId: "0",
-    path: "/file",
-    name: "file",
-    redirect: "/file/document-library",
+    path: "/machines",
+    name: "machines",
+    redirect: "/machines/list",
     meta: {
-      title: "file",
+      title: "machine-management",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -83,7 +83,7 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
+      roles: ["admin", "operator"],
       svgIcon: "folder-menu",
       sort: 2,
       type: 1
@@ -93,11 +93,11 @@ export const systemMenu = [
   {
     id: "0201",
     parentId: "02",
-    path: "/file/document-library",
-    name: "document-library",
-    component: "file/document-library/document-library",
+    path: "/machines/list",
+    name: "machine-list",
+    component: "machines/list/index",
     meta: {
-      title: "document-library",
+      title: "machine-list",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -105,7 +105,7 @@ export const systemMenu = [
       isFull: false,
       link: "",
       iframe: false,
-      roles: ["admin"],
+      roles: ["admin", "operator"],
       icon: "icon-menu",
       sort: 1,
       type: 2
@@ -113,13 +113,57 @@ export const systemMenu = [
     children: null
   },
   {
+    id: "0202",
+    parentId: "02",
+    path: "/machines/status",
+    name: "machine-status",
+    component: "machines/status/index",
+    meta: {
+      title: "machine-status",
+      hide: false,
+      disable: false,
+      keepAlive: true,
+      affix: false,
+      isFull: false,
+      link: "",
+      iframe: false,
+      roles: ["admin", "operator"],
+      icon: "icon-menu",
+      sort: 2,
+      type: 2
+    },
+    children: null
+  },
+  {
+    id: "0203",
+    parentId: "02",
+    path: "/machines/location",
+    name: "machine-location",
+    component: "machines/location/index",
+    meta: {
+      title: "machine-location",
+      hide: false,
+      disable: false,
+      keepAlive: true,
+      affix: false,
+      isFull: false,
+      link: "",
+      iframe: false,
+      roles: ["admin", "operator"],
+      icon: "icon-menu",
+      sort: 3,
+      type: 2
+    },
+    children: null
+  },
+  {
     id: "03",
     parentId: "0",
-    path: "/table",
-    name: "table",
-    redirect: "/table/common-table",
+    path: "/products",
+    name: "products",
+    redirect: "/products/inventory",
     meta: {
-      title: "table",
+      title: "product-management",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -127,7 +171,7 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
+      roles: ["admin", "operator"],
       svgIcon: "table",
       sort: 3,
       type: 1
@@ -137,11 +181,11 @@ export const systemMenu = [
   {
     id: "0301",
     parentId: "03",
-    path: "/table/common-table",
-    name: "common-table",
-    component: "table/common-table/common-table",
+    path: "/products/inventory",
+    name: "product-inventory",
+    component: "products/inventory/index",
     meta: {
-      title: "common-table",
+      title: "product-inventory",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -149,7 +193,7 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
+      roles: ["admin", "operator"],
       icon: "icon-menu",
       sort: 1,
       type: 2
@@ -159,11 +203,11 @@ export const systemMenu = [
   {
     id: "0302",
     parentId: "03",
-    path: "/table/custom-table",
-    name: "custom-table",
-    component: "table/custom-table/custom-table",
+    path: "/products/management",
+    name: "product-management-detail",
+    component: "products/management/index",
     meta: {
-      title: "custom-table",
+      title: "product-management-detail",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -171,7 +215,7 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
+      roles: ["admin", "operator"],
       icon: "icon-menu",
       sort: 2,
       type: 2
@@ -179,13 +223,13 @@ export const systemMenu = [
     children: null
   },
   {
-    id: "04",
-    parentId: "0",
-    path: "/form",
-    name: "form",
-    redirect: "/form/common-form",
+    id: "0303",
+    parentId: "03",
+    path: "/products/replenishment",
+    name: "product-replenishment",
+    component: "products/replenishment/index",
     meta: {
-      title: "form",
+      title: "product-replenishment",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -193,7 +237,29 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
+      roles: ["admin", "operator"],
+      icon: "icon-menu",
+      sort: 3,
+      type: 2
+    },
+    children: null
+  },
+  {
+    id: "04",
+    parentId: "0",
+    path: "/sales",
+    name: "sales",
+    redirect: "/sales/analytics",
+    meta: {
+      title: "sales-analytics",
+      hide: false,
+      disable: false,
+      keepAlive: true,
+      affix: false,
+      link: "",
+      iframe: false,
+      isFull: false,
+      roles: ["admin", "operator"],
       svgIcon: "form",
       sort: 4,
       type: 1
@@ -203,11 +269,11 @@ export const systemMenu = [
   {
     id: "0401",
     parentId: "04",
-    path: "/form/common-form",
-    name: "common-form",
-    component: "form/common-form/common-form",
+    path: "/sales/analytics",
+    name: "sales-analytics-detail",
+    component: "sales/analytics/index",
     meta: {
-      title: "common-form",
+      title: "sales-analytics-detail",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -215,7 +281,7 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
+      roles: ["admin", "operator"],
       icon: "icon-menu",
       sort: 1,
       type: 2
@@ -225,11 +291,11 @@ export const systemMenu = [
   {
     id: "0402",
     parentId: "04",
-    path: "/form/step-form",
-    name: "step-form",
-    component: "form/step-form/step-form",
+    path: "/sales/reports",
+    name: "sales-reports",
+    component: "sales/reports/index",
     meta: {
-      title: "step-form",
+      title: "sales-reports",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -237,7 +303,7 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
+      roles: ["admin", "operator"],
       icon: "icon-menu",
       sort: 2,
       type: 2
@@ -247,11 +313,11 @@ export const systemMenu = [
   {
     id: "05",
     parentId: "0",
-    path: "/multilevel",
-    name: "multilevel",
-    redirect: "/multilevel/second-1",
+    path: "/maintenance",
+    name: "maintenance",
+    redirect: "/maintenance/reports",
     meta: {
-      title: "multilevel",
+      title: "maintenance-management",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -259,8 +325,8 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
-      svgIcon: "switch",
+      roles: ["admin", "maintenance"],
+      svgIcon: "file",
       sort: 5,
       type: 1
     },
@@ -269,11 +335,11 @@ export const systemMenu = [
   {
     id: "0501",
     parentId: "05",
-    path: "/multilevel/second-1",
-    name: "second-1",
-    component: "multilevel/second/second-1",
+    path: "/maintenance/reports",
+    name: "maintenance-reports",
+    component: "maintenance/reports/index",
     meta: {
-      title: "second-1",
+      title: "maintenance-reports",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -281,7 +347,7 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
+      roles: ["admin", "maintenance"],
       icon: "icon-menu",
       sort: 1,
       type: 2
@@ -291,11 +357,11 @@ export const systemMenu = [
   {
     id: "0502",
     parentId: "05",
-    path: "/multilevel/second-2",
-    name: "second-2",
-    redirect: "/multilevel/third-1",
+    path: "/maintenance/schedule",
+    name: "maintenance-schedule",
+    component: "maintenance/schedule/index",
     meta: {
-      title: "second-2",
+      title: "maintenance-schedule",
       hide: false,
       disable: false,
       keepAlive: true,
@@ -303,740 +369,15 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin"],
+      roles: ["admin", "maintenance"],
       icon: "icon-menu",
       sort: 2,
-      type: 1
-    },
-    children: null
-  },
-  {
-    id: "050201",
-    parentId: "0502",
-    path: "/multilevel/third-2",
-    name: "third-2",
-    component: "multilevel/third/third-2",
-    meta: {
-      title: "third-2",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 2,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "050202",
-    parentId: "0502",
-    path: "/multilevel/third-1",
-    name: "third-1",
-    component: "multilevel/third/third-1",
-    meta: {
-      title: "third-1",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 1,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "050203",
-    parentId: "0502",
-    path: "/multilevel/third-3",
-    name: "third-3",
-    component: "multilevel/third/third-3",
-    meta: {
-      title: "third-3",
-      link: "",
-      hide: false,
-      keepAlive: true,
-      affix: false,
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 3,
       type: 2
     },
     children: null
   },
   {
     id: "06",
-    parentId: "0",
-    path: "/component",
-    name: "component",
-    redirect: "/component/player",
-    meta: {
-      title: "component",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "classify",
-      sort: 6,
-      type: 1
-    },
-    children: null
-  },
-  {
-    id: "0601",
-    parentId: "06",
-    path: "/component/player",
-    name: "player",
-    component: "component/player/player",
-    meta: {
-      title: "player",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 1,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0602",
-    parentId: "06",
-    path: "/component/print",
-    name: "print",
-    component: "component/print/print",
-    meta: {
-      title: "print",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 2,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0603",
-    parentId: "06",
-    path: "/component/draggable",
-    name: "draggable",
-    component: "component/draggable/draggable",
-    meta: {
-      title: "draggable",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 3,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0604",
-    parentId: "06",
-    path: "/component/editor",
-    name: "editor",
-    component: "component/editor/editor",
-    meta: {
-      title: "editor",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 4,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0605",
-    parentId: "06",
-    path: "/component/newbie",
-    name: "newbie",
-    component: "component/newbie/newbie",
-    meta: {
-      title: "newbie",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 5,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0606",
-    parentId: "06",
-    path: "/component/icon-selector",
-    name: "icon-selector",
-    component: "component/icon-selector/icon-selector",
-    meta: {
-      title: "icon-selector",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 6,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0607",
-    parentId: "06",
-    path: "/component/user-center",
-    name: "user-center",
-    component: "component/user-center/user-center",
-    meta: {
-      title: "user-center",
-      hide: true,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 7,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0608",
-    parentId: "06",
-    path: "/component/fingerprintjs2",
-    name: "fingerprintjs2",
-    component: "component/fingerprintjs2/fingerprintjs2",
-    meta: {
-      title: "fingerprintjs2",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 8,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0609",
-    parentId: "06",
-    path: "/component/barcode",
-    name: "barcode",
-    component: "component/barcode/barcode",
-    meta: {
-      title: "barcode",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 9,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0610",
-    parentId: "06",
-    path: "/component/qrcode",
-    name: "qrcode",
-    component: "component/qrcode/qrcode",
-    meta: {
-      title: "qrcode",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 10,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0611",
-    parentId: "06",
-    path: "/component/pinyin",
-    name: "pinyin",
-    component: "component/pinyin/pinyin",
-    meta: {
-      title: "pinyin",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 11,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0612",
-    parentId: "06",
-    path: "/component/recorder",
-    name: "recorder",
-    component: "component/recorder/recorder",
-    meta: {
-      title: "recorder",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 12,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0613",
-    parentId: "06",
-    path: "/component/virtual-list",
-    name: "virtual-list",
-    component: "component/virtual-list/index",
-    meta: {
-      title: "virtual-list",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 13,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0614",
-    parentId: "06",
-    path: "/component/common-layouts",
-    name: "common-layouts",
-    component: "component/common-layouts/index",
-    meta: {
-      title: "common-layouts",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 14,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "07",
-    parentId: "0",
-    path: "/directive",
-    name: "directive",
-    redirect: "/directive/anti-shake",
-    meta: {
-      title: "directive",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "directives",
-      sort: 7,
-      type: 1
-    },
-    children: null
-  },
-  {
-    id: "0701",
-    parentId: "07",
-    path: "/directive/anti-shake",
-    name: "anti-shake",
-    component: "directive/anti-shake/anti-shake",
-    meta: {
-      title: "anti-shake",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 1,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0702",
-    parentId: "07",
-    path: "/directive/throttle",
-    name: "throttle",
-    component: "directive/throttle/throttle",
-    meta: {
-      title: "throttle",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 2,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0703",
-    parentId: "07",
-    path: "/directive/test-directive",
-    name: "test-directive",
-    component: "directive/test-directive/test-directive",
-    meta: {
-      title: "test-directive",
-      hide: true,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 3,
-      type: 2
-    },
-    children: null
-  },
-  // {
-  //   id: "08",
-  //   parentId: "0",
-  //   path: "/personal",
-  //   name: "personal",
-  //   redirect: "/personal/userinfo",
-  //   meta: {
-  //     title: "personal",
-  //     hide: false,
-  //     disable: false,
-  //     keepAlive: true,
-  //     affix: false,
-  //     link: "",
-  //     iframe: false,
-  //     isFull: false,
-  //     roles: ["admin"],
-  //     svgIcon: "user",
-  //     sort: 8,
-  //     type: 1
-  //   },
-  //   children: null
-  // },
-  // {
-  //   id: "0801",
-  //   parentId: "08",
-  //   path: "/personal/userinfo",
-  //   name: "userinfo",
-  //   component: "personal/userinfo/userinfo",
-  //   meta: {
-  //     title: "userinfo",
-  //     hide: false,
-  //     disable: false,
-  //     keepAlive: true,
-  //     affix: false,
-  //     link: "",
-  //     iframe: false,
-  //     isFull: false,
-  //     roles: ["admin"],
-  //     icon: "icon-menu",
-  //     sort: 1,
-  //     type: 2
-  //   },
-  //   children: null
-  // },
-  // {
-  //   id: "0802",
-  //   parentId: "08",
-  //   path: "/personal/user-settings",
-  //   name: "user-settings",
-  //   component: "personal/user-settings/user-settings",
-  //   meta: {
-  //     title: "user-settings",
-  //     hide: false,
-  //     disable: false,
-  //     keepAlive: true,
-  //     affix: false,
-  //     link: "",
-  //     iframe: false,
-  //     isFull: false,
-  //     roles: ["admin"],
-  //     icon: "icon-menu",
-  //     sort: 2,
-  //     type: 2
-  //   },
-  //   children: null
-  // },
-  {
-    id: "09",
-    parentId: "0",
-    path: "/functions",
-    name: "functions",
-    redirect: "/functions/routing-operation",
-    meta: {
-      title: "functions",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "functions",
-      sort: 9,
-      type: 1
-    },
-    children: null
-  },
-  {
-    id: "0901",
-    parentId: "09",
-    path: "/functions/routing-operation",
-    name: "routing-operation",
-    component: "functions/routing-operation/index",
-    meta: {
-      title: "routing-operation",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 1,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "090101",
-    parentId: "0901",
-    path: "/functions/routing-operation/common-route",
-    name: "common-route",
-    component: "functions/routing-operation/common-route",
-    meta: {
-      title: "common-route",
-      hide: true,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "switch",
-      sort: 1,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "090102",
-    parentId: "0901",
-    path: "/functions/routing-operation/dynamic-route/:name/:text",
-    name: "dynamic-route",
-    component: "functions/routing-operation/dynamic-route",
-    meta: {
-      title: "dynamic-route",
-      hide: true,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "switch",
-      sort: 2,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0902",
-    parentId: "09",
-    path: "/functions/common-tools",
-    name: "common-tools",
-    component: "functions/common-tools/common-tools",
-    meta: {
-      title: "common-tools",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 2,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0903",
-    parentId: "09",
-    path: "/functions/tree-tools",
-    name: "tree-tools",
-    component: "functions/tree-tools/tree-tools",
-    meta: {
-      title: "tree-tools",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 3,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0904",
-    parentId: "09",
-    path: "/functions/file-tools",
-    name: "file-tools",
-    component: "functions/file-tools/file-tools",
-    meta: {
-      title: "file-tools",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 4,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "0905",
-    parentId: "09",
-    path: "/functions/verify-tools",
-    name: "verify-tools",
-    component: "functions/verify-tools/verify-tools",
-    meta: {
-      title: "verify-tools",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 5,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "10",
     parentId: "0",
     path: "/system",
     name: "system",
@@ -1050,16 +391,16 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin", "common"],
+      roles: ["admin"],
       svgIcon: "set",
-      sort: 10,
+      sort: 6,
       type: 1
     },
     children: null
   },
   {
-    id: "1001",
-    parentId: "10",
+    id: "0601",
+    parentId: "06",
     path: "/system/account",
     name: "account",
     component: "system/account/account",
@@ -1080,8 +421,8 @@ export const systemMenu = [
     children: null
   },
   {
-    id: "1002",
-    parentId: "10",
+    id: "0602",
+    parentId: "06",
     path: "/system/role",
     name: "role",
     component: "system/role/role",
@@ -1102,8 +443,8 @@ export const systemMenu = [
     children: null
   },
   {
-    id: "1003",
-    parentId: "10",
+    id: "0603",
+    parentId: "06",
     path: "/system/menu",
     name: "menu",
     component: "system/menu/menu",
@@ -1124,8 +465,8 @@ export const systemMenu = [
     children: null
   },
   {
-    id: "1004",
-    parentId: "10",
+    id: "0604",
+    parentId: "06",
     path: "/system/division",
     name: "division",
     component: "system/division/division",
@@ -1146,8 +487,8 @@ export const systemMenu = [
     children: null
   },
   {
-    id: "1005",
-    parentId: "10",
+    id: "0605",
+    parentId: "06",
     path: "/system/dictionary",
     name: "dictionary",
     component: "system/dictionary/dictionary",
@@ -1168,30 +509,8 @@ export const systemMenu = [
     children: null
   },
   {
-    id: "1006",
-    parentId: "10",
-    path: "/system/log",
-    name: "log",
-    component: "system/log/log",
-    meta: {
-      title: "log",
-      hide: true,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 6,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "1007",
-    parentId: "10",
+    id: "0606",
+    parentId: "06",
     path: "/system/userinfo",
     name: "userinfo",
     component: "system/userinfo/userinfo",
@@ -1204,411 +523,15 @@ export const systemMenu = [
       link: "",
       iframe: false,
       isFull: false,
-      roles: ["admin", "common"],
+      roles: ["admin", "operator", "maintenance"],
       icon: "icon-menu",
-      sort: 7,
+      sort: 6,
       type: 2
     },
     children: null
   },
   {
-    id: "11",
-    parentId: "0",
-    path: "/disable-menu",
-    name: "disable-menu",
-    component: "disable-menu/disable-menu",
-    meta: {
-      title: "disable-menu",
-      hide: false,
-      disable: true,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "switch",
-      sort: 11,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "12",
-    parentId: "0",
-    path: "/hide-menu",
-    name: "hide-menu",
-    component: "hide-menu/hide-menu",
-    meta: {
-      title: "hide-menu",
-      hide: true,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "switch",
-      sort: 12,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "13",
-    parentId: "0",
-    path: "/permission",
-    name: "permission",
-    redirect: "/permission/btn-perm",
-    meta: {
-      title: "permission",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin", "common"],
-      svgIcon: "defend",
-      sort: 13,
-      type: 1
-    },
-    children: null
-  },
-  {
-    id: "1301",
-    parentId: "13",
-    path: "/permission/btn-perm",
-    name: "btn-perm",
-    component: "permission/btn-perm/btn-perm",
-    meta: {
-      title: "btn-perm",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin", "common"],
-      icon: "icon-menu",
-      sort: 1,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "1302",
-    parentId: "13",
-    path: "/permission/admin-page",
-    name: "admin-page",
-    component: "permission/admin-page/admin-page",
-    meta: {
-      title: "admin-page",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 2,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "1303",
-    parentId: "13",
-    path: "/permission/common-page",
-    name: "common-page",
-    component: "permission/common-page/common-page",
-    meta: {
-      title: "common-page",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["common"],
-      icon: "icon-menu",
-      sort: 3,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "14",
-    parentId: "0",
-    path: "/link",
-    name: "link",
-    redirect: "/link/internal",
-    meta: {
-      title: "link",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "link",
-      sort: 14,
-      type: 1
-    },
-    children: null
-  },
-  {
-    id: "1401",
-    parentId: "14",
-    path: "/link/internal",
-    name: "internal",
-    redirect: "/link/internal/uigradients",
-    meta: {
-      title: "internal",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 1,
-      type: 1
-    },
-    children: null
-  },
-  {
-    id: "140101",
-    parentId: "1401",
-    path: "/link/internal/uigradients",
-    name: "uigradients",
-    component: "link/internal/internal",
-    meta: {
-      title: "uigradients",
-      hide: false,
-      keepAlive: true,
-      disable: false,
-      affix: false,
-      link: "https://uigradients.com/#HoneyDew", // 链接
-      iframe: true, // 区分是否内链 true内链 false外链
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 1,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "140102",
-    parentId: "1401",
-    path: "/link/internal/color-taking-tool",
-    name: "color-taking-tool",
-    component: "link/internal/internal",
-    meta: {
-      title: "color-taking-tool",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "https://photokit.com/colors/eyedropper/?lang=zh", // 链接
-      iframe: true, // 区分是否内链 true内链 false外链
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 2,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "140103",
-    parentId: "1401",
-    path: "/link/internal/grid-generator",
-    name: "grid-generator",
-    component: "link/internal/internal",
-    meta: {
-      title: "grid-generator",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "https://cssgrid-generator.netlify.app/", // 链接
-      iframe: true, // 区分是否内链 true内链 false外链
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 3,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "140104",
-    parentId: "1401",
-    path: "/link/internal/gaodemap",
-    name: "gaodemap",
-    component: "link/internal/internal",
-    meta: {
-      title: "amap",
-      hide: false,
-      keepAlive: true,
-      disable: false,
-      affix: false,
-      link: "http://115.190.79.132:82/", // 链接
-      iframe: true, // 区分是否内链 true内链 false外链
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 4,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "1402",
-    parentId: "14",
-    path: "/link/external",
-    name: "external",
-    redirect: "/link/external/link-vue",
-    meta: {
-      title: "external",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 2,
-      type: 1
-    },
-    children: null
-  },
-  {
-    id: "140201",
-    parentId: "1402",
-    path: "/link/external/SnowAdmin-Docs",
-    name: "SnowAdmin-Docs",
-    component: "link/external/external",
-    meta: {
-      title: "SnowAdmin-Docs",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "http://115.190.79.132:81/", // 链接
-      iframe: false, // 区分是否内链 true内链 false外链
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 5,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "140202",
-    parentId: "1402",
-    path: "/link/external/vue",
-    name: "vue",
-    component: "link/external/external",
-    meta: {
-      title: "vue",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "https://cn.vuejs.org/", // 链接
-      iframe: false, // 区分是否内链 true内链 false外链
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 1,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "140203",
-    parentId: "1402",
-    path: "/link/external/vite",
-    name: "vite",
-    component: "link/external/external",
-    meta: {
-      title: "vite",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "https://www.vitejs.net/", // 链接
-      iframe: false, // 区分是否内链 true内链 false外链
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 2,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "140204",
-    parentId: "1402",
-    path: "/link/external/github",
-    name: "github",
-    component: "link/external/external",
-    meta: {
-      title: "github",
-      hide: false,
-      disable: true,
-      keepAlive: true,
-      affix: false,
-      link: "https://github.com/WangFan-io/SnowAdmin", // 链接
-      iframe: false, // 区分是否内链 true内链 false外链
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 3,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "140205",
-    parentId: "1402",
-    path: "/link/external/juejin",
-    name: "juejin",
-    component: "link/external/external",
-    meta: {
-      title: "juejin",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "https://juejin.cn/user/1728883023940600", // 链接
-      iframe: false, // 区分是否内链 true内链 false外链
-      isFull: false,
-      roles: ["admin"],
-      icon: "icon-menu",
-      sort: 4,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "15",
+    id: "07",
     parentId: "0",
     path: "/monitor",
     name: "monitor",
@@ -1624,14 +547,14 @@ export const systemMenu = [
       isFull: false,
       roles: ["admin"],
       svgIcon: "financial-statement",
-      sort: 15,
+      sort: 7,
       type: 1
     },
     children: null
   },
   {
-    id: "1501",
-    parentId: "15",
+    id: "0701",
+    parentId: "07",
     path: "/monitor/onlineuser",
     name: "onlineuser",
     component: "monitor/onlineuser/index",
@@ -1652,8 +575,8 @@ export const systemMenu = [
     children: null
   },
   {
-    id: "1502",
-    parentId: "15",
+    id: "0702",
+    parentId: "07",
     path: "/monitor/crontab",
     name: "crontab",
     component: "monitor/crontab/index",
@@ -1674,8 +597,8 @@ export const systemMenu = [
     children: null
   },
   {
-    id: "1503",
-    parentId: "15",
+    id: "0703",
+    parentId: "07",
     path: "/monitor/crontab-logs",
     name: "crontab-logs",
     component: "monitor/crontab-logs/index",
@@ -1691,73 +614,6 @@ export const systemMenu = [
       roles: ["admin"],
       icon: "icon-menu",
       sort: 3,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "16",
-    parentId: "0",
-    path: "/SnowAdmin-Thin",
-    name: "thin-preview",
-    component: "link/external/external",
-    meta: {
-      title: "thin-preview",
-      hide: false,
-      disable: false,
-      keepAlive: false,
-      affix: true,
-      link: "http://115.190.79.132:83/#/login",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "propaganda",
-      icon: "",
-      sort: 16,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "17",
-    parentId: "0",
-    path: "/i18n",
-    name: "i18n",
-    component: "i18n/show/index",
-    meta: {
-      title: "i18n",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin"],
-      svgIcon: "earth",
-      sort: 17,
-      type: 2
-    },
-    children: null
-  },
-  {
-    id: "18",
-    parentId: "0",
-    path: "/about",
-    name: "about",
-    component: "about/about",
-    meta: {
-      title: "about",
-      hide: false,
-      disable: false,
-      keepAlive: true,
-      affix: false,
-      link: "",
-      iframe: false,
-      isFull: false,
-      roles: ["admin", "common"],
-      svgIcon: "about",
-      sort: 18,
       type: 2
     },
     children: null

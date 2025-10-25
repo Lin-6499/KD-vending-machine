@@ -16,12 +16,7 @@
             </template>
           </a-input-password>
         </a-form-item>
-        <a-form-item field="verifyCode" :hide-asterisk="true">
-          <div class="verifyCode">
-            <a-input style="width: 160px" v-model="form.verifyCode" allow-clear placeholder="请输入验证码" />
-            <s-verify-code :content-height="30" :font-size-max="30" :content-width="110" @verify-code-change="verifyCodeChange" />
-          </div>
-        </a-form-item>
+
         <a-form-item field="remember">
           <div class="remember">
             <a-checkbox v-model="form.remember">记住密码</a-checkbox>
@@ -49,7 +44,6 @@ const router = useRouter();
 const form = ref({
   username: "admin",
   password: "123456",
-  verifyCode: null,
   remember: false
 });
 const rules = ref({
@@ -64,25 +58,8 @@ const rules = ref({
       required: true,
       message: "请输入密码"
     }
-  ],
-  verifyCode: [
-    {
-      required: true,
-      message: "请输入验证码"
-    },
-    {
-      validator: (value: string, cb: any) => {
-        if (value !== verifyCode.value) {
-          cb("请输入正确的验证码");
-        } else {
-          cb();
-        }
-      }
-    }
   ]
 });
-const verifyCode = ref("");
-const verifyCodeChange = (code: string) => (verifyCode.value = code);
 
 // 提交表单
 const onSubmit = async ({ errors }: any) => {
@@ -112,23 +89,20 @@ const onLogin = async () => {
 <style lang="scss" scoped>
 .login_form_box {
   margin-top: 28px;
-  .verifyCode {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
+
   .remember {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+
     .forgot-password {
       color: $color-primary;
       cursor: pointer;
     }
   }
 }
+
 .register {
   font-size: $font-size-body-1;
   color: $color-text-3;

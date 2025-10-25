@@ -1,0 +1,3 @@
+onlyBuiltDependencies:
+  - core-js
+  - snow-admin

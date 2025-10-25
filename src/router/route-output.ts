@@ -53,7 +53,9 @@ export const deepCloneRoute = (route: any) => {
  */
 export const moduleReplacement = (tree: any) => {
   tree.forEach((item: any) => {
-    item.children && delete item.children;
+    if (item.children) {
+      delete item.children;
+    }
     moduleMatch(item);
   });
   return tree;

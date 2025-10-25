@@ -79,10 +79,14 @@ const refresh = () => {
   }, 500);
   const themeStore = useThemeConfig();
   themeStore.setRefreshPage(false);
-  currentRoute.value.meta.keepAlive && routerStore.removeRouteName(currentRoute.value.path);
+  if (currentRoute.value.meta?.keepAlive) {
+    routerStore.removeRouteName(currentRoute.value.path);
+  }
   nextTick(() => {
     themeStore.setRefreshPage(true);
-    currentRoute.value.meta.keepAlive && routerStore.setRoutePaths(currentRoute.value.path);
+    if (currentRoute.value.meta?.keepAlive) {
+      routerStore.setRoutePaths(currentRoute.value.path);
+    }
   });
 };
 
@@ -139,6 +143,8 @@ const closeOther = (type: string) => {
 </script>
 
 <style lang="scss" scoped>
+@import "@/style/var/global-theme";
+
 .tabs {
   box-sizing: border-box;
   display: flex;
@@ -146,18 +152,22 @@ const closeOther = (type: string) => {
   justify-content: space-between;
   height: 40px;
   border-bottom: $border-1 solid $color-border-2;
+
   .tabs_setting {
-    margin: 0 0 0 $margin;
+    margin: 0 0 0 #{$margin};
+
     .setting {
       margin-right: $margin;
       color: $color-text-2;
     }
+
     .refresh {
       transform: rotate(360deg);
       transition: transform 0.5s;
     }
   }
 }
+
 :deep(.arco-tabs-nav-tab) {
   // 移入展示关闭icon
   .arco-tabs-tab-closable {
@@ -165,6 +175,7 @@ const closeOther = (type: string) => {
       width: 0;
       transition: all 0.2s;
     }
+
     &:hover {
       svg {
         width: 1em;
