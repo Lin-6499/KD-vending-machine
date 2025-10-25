@@ -27,7 +27,8 @@
 <script setup lang="ts">
 import myImage from "@/assets/img/Abbey Road.jpg";
 import { v4 as uuidv4 } from "uuid";
-import { DynamicScroller, DynamicScrollerItem } from "vue-virtual-scroller";
+// TODO: Replace with Vue 3 compatible virtual scroller
+// import { DynamicScroller, DynamicScrollerItem } from "vue-virtual-scroller";
 // 还需引入vue-virtual-scroller的css文件，此处父组件已引入
 // import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 
@@ -59,28 +60,34 @@ getList();
   width: 300px;
   max-height: 400px;
   overflow: hidden;
-  border: 1px solid $color-primary;
+  border: 1px solid #165dff;
   border-radius: 4px;
+
   .scroller {
     flex: 1;
+
     .message {
       padding: 4px;
       margin-bottom: 4px;
-      border: 1px solid $color-border-2;
+      border: 1px solid #e5e6eb;
+
       .list-item {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 4px;
+
         .grid-item {
           display: flex;
           column-gap: 4px;
-          border: 1px solid $color-success;
+          border: 1px solid #00b42a;
           border-radius: 4px;
+
           .item-right {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 4px 0;
+
             .desc-text {
               font-size: 12px;
             }

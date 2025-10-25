@@ -29,7 +29,9 @@ const FileTableRef = ref();
 const breadcrumb = ref<any>([]);
 const onNode = (list: any) => {
   breadcrumb.value = list;
-  FileTableRef.value && FileTableRef.value.getList();
+  if (FileTableRef.value) {
+    FileTableRef.value.getList();
+  }
 };
 </script>
 
@@ -38,31 +40,37 @@ const onNode = (list: any) => {
   display: flex;
   height: 100%;
   overflow: hidden;
+
   .left-box {
     width: 300px;
     height: 100%;
-    background: $color-bg-1;
+    background: #fff;
+
     .file-tree-style {
       height: calc(100% - 40px);
     }
   }
+
   .right-box {
-    width: calc(100% - 220px - $padding);
+    width: calc(100% - 220px - 16px);
     height: 100%;
     margin-left: $padding;
     background: $color-bg-1;
+
     .file-table-style {
       height: calc(100% - 40px);
     }
   }
+
   .row-content {
     width: 100%;
     margin-left: 0;
   }
 }
+
 .box-title {
   height: 40px;
-  padding: 0 $margin;
+  padding: 0 16px;
   font-size: $font-size-title-1;
   line-height: 40px;
   text-align: left;

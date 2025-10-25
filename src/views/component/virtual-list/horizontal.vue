@@ -24,7 +24,8 @@
 </template>
 <script setup lang="ts">
 import myImage from "@/assets/img/The Dark Side of The Moon.jpg";
-import { DynamicScroller, DynamicScrollerItem } from "vue-virtual-scroller";
+// TODO: Replace with Vue 3 compatible virtual scroller
+// import { DynamicScroller, DynamicScrollerItem } from "vue-virtual-scroller";
 // 还需引入vue-virtual-scroller的css文件，此处父组件已引入
 // import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 
@@ -42,17 +43,21 @@ for (let i = 0; i < 500; i++) {
   width: 300px;
   height: 90px;
   overflow: hidden;
-  border: 1px solid $color-primary;
+  border: 1px solid #165dff;
   border-radius: 4px;
+
   .scroller {
     flex: 1;
+
     .message {
       padding: 12px;
       margin-bottom: 4px;
-      border: 1px solid $color-border-2;
+      border: 1px solid #e5e6eb;
+
       .list-item {
         display: flex;
         column-gap: 4px;
+
         .item-right {
           display: flex;
           flex-direction: column;

@@ -34,12 +34,16 @@
           <div>
             页面使用需引入：
             <a-typography-text code>
-              import { DynamicScroller, DynamicScrollerItem } from "vue-virtual-scroller";
+              // TODO: Replace with Vue 3 compatible virtual scroller // import { DynamicScroller, DynamicScrollerItem } from
+              "vue-virtual-scroller";
             </a-typography-text>
           </div>
           <div>
             以及css文件：
-            <a-typography-text code> import "vue-virtual-scroller/dist/vue-virtual-scroller.css"; </a-typography-text>
+            <a-typography-text code>
+              // // TODO: Replace with Vue 3 compatible virtual scroller // // TODO: Replace with Vue 3 compatible virtual
+              scroller // import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
+            </a-typography-text>
           </div>
         </a-typography-paragraph>
       </a-typography>
@@ -47,10 +51,13 @@
   </div>
 </template>
 <script setup lang="ts">
-import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
+// TODO: Replace with Vue 3 compatible virtual scroller
+// import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 import vertical from "./vertical.vue";
 import verticalGrid from "./vertical-grid.vue";
 import horizontal from "./horizontal.vue";
 defineOptions({ name: "virtual-list" });
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+/* Virtual list styles */
+</style>

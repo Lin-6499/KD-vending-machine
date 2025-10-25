@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from "vite";
 import path from "path";
 import { resolve } from "path";
 import { include } from "./build/optimize";
+import type { Plugin } from "postcss";
 import postcssPresetEnv from "postcss-preset-env";
 import { createVitePlugins } from "./build/vite-plugin";
 // const themePath = normalizePath(path.normalize("./src/style/global-theme.scss"));

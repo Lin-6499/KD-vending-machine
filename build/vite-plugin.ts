@@ -17,7 +17,7 @@ export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOptio
   return [
     vue(),
     // esLint 报错信息显示在浏览器界面上
-    eslintPlugin(),
+    // eslintPlugin(),
     vitePluginForArco({
       style: "css"
     }),

@@ -172,7 +172,11 @@ export const formatPast = (param: string | Date, format: string = "YYYY-mm-dd"):
   // 获取js 时间戳
   let time: number = new Date().getTime();
   // 是否是对象
-  typeof param === "string" || "object" ? (t = new Date(param).getTime()) : (t = param);
+  if (typeof param === "string" || typeof param === "object") {
+    t = new Date(param).getTime();
+  } else {
+    t = param;
+  }
   // 当前时间戳 - 传入时间戳
   time = Number.parseInt(`${time - t}`);
   if (time < 10000) {
